@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import StaggeredMenu from '../bits/StaggeredMenu';
 import '../bits/StaggeredMenu.css';
 import { NAV, PROFILE } from '../data';
-import { Status } from '../ui';
 
 const useMedia = q => {
   const [m, setM] = useState(() => typeof window !== 'undefined' && window.matchMedia(q).matches);
@@ -73,7 +72,7 @@ export default function Nav({ theme }) {
             ))}
           </ul>
         </nav>
-        <a className="nav-cta cursor-target" href="#contact" data-cursor-label="Say hi"><Status state="shipped">{PROFILE.available}</Status></a>
+        <a className="nav-cta cursor-target" href="#contact" data-cursor-label="Say hi">Get in touch <span aria-hidden="true">→</span></a>
       </div>
     </header>
   );

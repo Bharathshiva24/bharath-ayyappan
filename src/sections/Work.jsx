@@ -16,8 +16,8 @@ function ProjectCard({ p, theme, featured }) {
       intensity={0.18}
       borderGlow={0.5}
     >
-      <a className="project-link cursor-target" href={p.href} data-cursor-label={external ? 'Open' : 'View'} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-        <Screen aspect={featured ? 'scope' : 'flat'} src={p.image} alt={p.imageAlt} fit={p.imageFit} label={p.image ? undefined : 'Under NDA — ask for a walkthrough'} />
+      <a className="project-link cursor-target" href={p.href} data-cursor-label={external ? 'Open' : p.href.startsWith('#case-') ? 'Case' : 'View'} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+        <Screen aspect={featured ? 'scope' : 'flat'} src={p.image} alt={p.imageAlt} fit={p.imageFit} label={p.image ? undefined : p.slot ? `Image ${p.slot}` : 'Under NDA — ask for a walkthrough'} />
         <div className="project-body">
           <Slate scene={p.index} items={[p.kind, p.year]} decrypt={false} />
           <div className="project-row">

@@ -1,11 +1,25 @@
+import { useRef } from 'react';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import TrueFocus from '../bits/TrueFocus';
 import '../bits/TrueFocus.css';
 import CountUp from '../bits/CountUp';
-import { STATS, EXPERIENCE } from '../data';
-import { Slate, Tag, Reveal } from '../ui';
+import { STATS, JOURNEY } from '../data';
+import { Slate, Reveal } from '../ui';
 
 export default function About({ theme }) {
   const tung = theme === 'light' ? '#8a4f00' : '#ffb03a';
+  const reel = useRef(null);
+
+  // The reel line fills as you scroll through the story.
+  useGSAP(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.fromTo('.journey-progress', { scaleY: 0 }, {
+      scaleY: 1, ease: 'none',
+      scrollTrigger: { trigger: reel.current, start: 'top 70%', end: 'bottom 60%', scrub: 0.6 }
+    });
+  }, { scope: reel });
+
   return (
     <section className="section about" id="about" aria-labelledby="about-title">
       <div className="container">
@@ -28,16 +42,14 @@ export default function About({ theme }) {
         <div className="about-grid">
           <Reveal>
             <div className="about-story">
-              <p className="body-lg">
-                I started behind a camera — as a photojournalist at Dinamalar — learning to find the frame that tells the story.
-                That instinct carried into seven years of product and experience design at Slate and Pencil, Xerago and now Mindsprint, where I lead design.
+              <p className="about-lead">
+                I've never followed a straight line. Every turn in my work started the same way — with curiosity, and a
+                willingness to try something I didn't know how to do yet.
               </p>
               <p className="body-lg">
-                Lately the line between designing and building has disappeared. With AI as a collaborator I take ideas from Figma to shipped code —
-                a Chrome extension that shows the screen from your seat, a phone that becomes a PC, an AC that turns off when I close my laptop.
-                I founded three products along the way.
+                It began with photographs, became a studio, turned into a question about how apps are made, and grew into
+                a career in UX, digital experiences and AI. Here's how it unfolded.
               </p>
-              <p className="body-lg">When I'm not designing, I'm watching films — usually from the perfect seat.</p>
             </div>
           </Reveal>
           <div className="stats">
@@ -55,21 +67,28 @@ export default function About({ theme }) {
           </div>
         </div>
 
-        <div className="exp">
-          <h3 className="heading-md exp-title">Experience</h3>
-          {EXPERIENCE.map((e, i) => (
-            <Reveal key={e.role + e.company} delay={Math.min(i, 4) * 0.05} distance={16}>
-              <div className={`exp-row ${e.current ? 'exp-current' : ''}`}>
-                <div className="exp-years">{e.years}</div>
-                <div>
-                  <div className="exp-role">{e.role} <span className="exp-co">· {e.company}</span></div>
-                  {e.note && <p className="exp-note">{e.note}</p>}
+        <ol className="journey" ref={reel} aria-label="Career journey">
+          <span className="journey-track" aria-hidden="true"><span className="journey-progress" /></span>
+          {JOURNEY.map((j, i) => (
+            <li key={j.scene} className={`journey-item ${j.current ? 'journey-current' : ''}`}>
+              <span className="journey-dot" aria-hidden="true" />
+              <div className="journey-when">{j.year}</div>
+              <Reveal distance={28} delay={0.05}>
+                <div className="journey-body">
+                  <div className="slate">
+                    <span className="slate-scene">Scene {String(i + 1).padStart(2, '0')}</span>
+                    <span className="slate-sep" />
+                    <span>{j.place}</span>
+                    <span className="slate-sep" />
+                    <span>{j.role}</span>
+                  </div>
+                  <h3 className="journey-title">{j.scene}</h3>
+                  <p className="journey-story">{j.story}</p>
                 </div>
-                <Tag>{e.kind}</Tag>
-              </div>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ export default function Contact({ theme, onToggleTheme }) {
   return (
     <section className="section contact" id="contact" aria-labelledby="contact-title">
       <div className="container" ref={box}>
-        <Slate scene="SC.06" items={['Contact', PROFILE.available]} />
+        <Slate scene="SC.06" items={['Contact', 'Chennai, IN']} />
         <h2 id="contact-title" className="contact-h">
           <VariableProximity
             label="Let's make something worth watching."

@@ -4,7 +4,6 @@ export const PROFILE = {
   name: 'Bharath Ayyappan',
   role: 'Product Designer & Creative Technologist',
   location: 'Chennai, IN',
-  available: 'Open to roles',
   // TODO: add a public email address before launch, e.g. 'hello@bharath.design'
   email: '',
   links: {
@@ -71,10 +70,53 @@ export const WORK = [
     href: 'https://github.com/Bharathshiva24/AC-Widget'
   },
   {
-    id: 'client',
+    id: 'kfc',
     index: '04',
+    title: 'KFC App — Concept Revamp',
+    kind: 'Mobile app concept',
+    year: 'Self-initiated',
+    status: 'concept',
+    statusLabel: 'Concept · Prototype',
+    description: 'A faster, warmer ordering flow for KFC India — skippable login, rewards up front, and a menu that never loses your cart.',
+    tags: ['UX', 'Mobile UI', 'Prototype'],
+    image: null,
+    slot: 'KFC-01',
+    href: '#case-kfc'
+  },
+  {
+    id: 'lucid',
+    index: '05',
+    title: 'LUCID',
+    kind: 'Speculative product',
+    year: '2022 — Ongoing',
+    status: 'concept',
+    statusLabel: 'Concept',
+    description: 'Customisable dreaming: a research-led product ecosystem — dream band, earpiece and app — for living the third of life we spend asleep.',
+    tags: ['Research', 'Systems', 'Future tech'],
+    image: null,
+    slot: 'LUCID-01',
+    href: '#case-lucid'
+  },
+  {
+    id: 'slate',
+    index: '06',
+    title: 'Slate Auto — Modular Mods',
+    kind: 'Visual concept',
+    year: 'Self-initiated',
+    status: 'concept',
+    statusLabel: '32K+ impressions',
+    description: 'Five limited editions for a modular EV — what if a car launched like a sneaker drop?',
+    tags: ['Visual design', 'Concept', 'Brand'],
+    image: null,
+    slot: 'SLATE-01',
+    href: '#case-slate'
+  },
+  {
+    id: 'client',
+    index: '07',
     title: 'Enterprise & client work',
-    kind: 'Mindsprint · Xerago · Slate and Pencil',
+    slot: 'ENT-01',
+    kind: 'Enterprise · Marketing · Consumer',
     year: '2019 — Now',
     status: 'concept',
     statusLabel: 'Case studies on request',
@@ -124,10 +166,10 @@ export const LAB = [
 
 // Replace label-only tiles with real images: add `image: '/visual/xyz.webp'`.
 export const VISUAL = [
-  { title: 'Photojournalism', meta: 'Dinamalar · 2017', aspect: 'portrait' },
-  { title: 'Slate Auto — modular mods', meta: 'Concept · 376 reactions', aspect: 'portrait' },
-  { title: 'KFC app revamp', meta: 'Concept · Mobile', aspect: 'portrait' },
-  { title: 'LUCID Tech', meta: 'Speculative product', aspect: 'portrait' }
+  { title: 'Photojournalism', meta: 'Dinamalar · 2017', aspect: 'portrait', slot: 'PHOTO-01 — your own photo' },
+  { title: 'Street & portrait', meta: 'Photography', aspect: 'portrait', slot: 'PHOTO-02 — your own photo' },
+  { title: 'Slate Auto editions', meta: 'Concept · 5 wraps', aspect: 'portrait', slot: 'SLATE-02 — your render', href: '#case-slate' },
+  { title: 'LUCID Dream Band', meta: 'Product render', aspect: 'portrait', slot: 'VIS-01', href: '#case-lucid' }
 ];
 
 export const STATS = [
@@ -137,13 +179,49 @@ export const STATS = [
   { value: 964, suffix: '+', label: 'People following the work' }
 ];
 
-export const EXPERIENCE = [
-  { years: '2025 — Now', role: 'Lead Designer', company: 'Mindsprint', note: 'Leading product design · Chennai, hybrid', kind: 'Full-time', current: true },
-  { years: '2026 — Now', role: 'Founder', company: 'Posterflix', kind: 'Founder' },
-  { years: '2026 — Now', role: 'Founder', company: 'Vizr', note: 'Local AI web-design tool. No cloud.', kind: 'Founder' },
-  { years: '2022 — 2025', role: 'Senior Executive, Experience', company: 'Xerago', note: 'Creative ideation, UI and experience design', kind: 'Full-time' },
-  { years: '2023 — 2025', role: 'Founder', company: 'CreativeCat', note: 'AI content tool · Google Cloud Startup Program', kind: 'Founder' },
-  { years: '2019 — 2022', role: 'UI/UX Designer', company: 'Slate and Pencil', note: 'Junior → Associate', kind: 'Full-time' },
-  { years: '2018 — 2019', role: 'Interdisciplinary Designer', company: 'Bello Pixel', note: 'Editing and photography', kind: 'Freelance' },
-  { years: '2017 — 2018', role: 'Photographer', company: 'Dinamalar · Freelance', note: 'Photojournalism internship, then freelance', kind: 'Photo' }
+// Career story for the About section — told as scenes, in order.
+export const JOURNEY = [
+  {
+    year: '2017',
+    scene: 'The frame',
+    place: 'Dinamalar',
+    role: 'Photojournalist intern',
+    story: 'My first brief came from a newsroom. As an intern at Dinamalar I learned that one photograph has to carry a whole story — and that you earn the frame by paying attention to people.'
+  },
+  {
+    year: '2018 — 2019',
+    scene: 'The studio',
+    place: 'Bello Pixel',
+    role: 'Co-founder',
+    story: 'With a few friends I co-founded Bello Pixel, an online creative studio. We took on editing, photography and design — and I learned what it means to build something from nothing, with your own name on it.'
+  },
+  {
+    year: 'Then',
+    scene: 'The spark',
+    place: 'An app idea',
+    role: 'Discovering UX',
+    story: 'While running the studio I had an idea for an app. I had no idea how apps were designed, so I went looking. That search led me to UX — the craft of understanding how people actually use the things we make. I haven’t stopped exploring it since.'
+  },
+  {
+    year: '2019 — 2022',
+    scene: 'The craft',
+    place: 'Slate & Pencil',
+    role: 'UI/UX designer',
+    story: 'Slate & Pencil is where design became my profession. Real clients, real deadlines, and room to grow from junior to associate designer — learning research, interface systems and how to ship.'
+  },
+  {
+    year: '2022 — 2025',
+    scene: 'The leap',
+    place: 'Xerago',
+    role: 'Experience design',
+    story: 'At Xerago I began exploring AI — what it could do for ideas, interfaces and the people using them. Alongside, I founded CreativeCat, an AI content tool that joined the Google Cloud Startup Program.'
+  },
+  {
+    year: 'Now',
+    scene: 'The builder',
+    place: 'Independent work',
+    role: 'Designing & building',
+    story: 'Today I design and build — my own products like Vizr, open-source tools made with AI, and concepts that ask “what if?”. Different tools, same curiosity that started behind a camera.',
+    current: true
+  }
 ];

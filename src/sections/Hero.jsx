@@ -30,24 +30,25 @@ export default function Hero({ theme }) {
         <Slate scene="SC.00" items={[PROFILE.name, PROFILE.location, PROFILE.role]} />
 
         <h1 className="hero-h">
-          <span className="sr-only">I design products — then I build them.</span>
+          <span className="sr-only">Designed with intent. Built to ship.</span>
           <span aria-hidden="true">
-            <SplitText text="I design products —" tag="span" splitType="words" effect="rise" mask delay={70} duration={1.1} textAlign="left" trigger="load" className="hero-line" />
-            <SplitText text="then I build them." tag="span" splitType="words" effect="rise" mask delay={70} duration={1.1} textAlign="left" trigger="load" className="hero-line hero-line-2" />
+            <SplitText text="Designed with intent." tag="span" splitType="words" effect="rise" mask delay={70} duration={1.1} textAlign="left" trigger="load" className="hero-line" />
+            <SplitText text="Built to ship." tag="span" splitType="words" effect="rise" mask delay={70} duration={1.1} textAlign="left" trigger="load" className="hero-line hero-line-2" />
           </span>
         </h1>
 
         <div className="hero-foot">
           <Reveal delay={0.7} distance={24}>
             <p className="hero-intro">
-              Nine years between the <strong>camera</strong>, the <strong>canvas</strong> and the <strong>codebase</strong>.
-              Lead Designer at Mindsprint, founder of Vizr, and I ship open-source tools with AI on the side.
+              I'm a product designer and creative technologist. For nine years I've moved between the <strong>camera</strong>,
+              the <strong>canvas</strong> and the <strong>codebase</strong> — shaping apps, speculative tech and open-source tools
+              from first sketch to shipped release.
             </p>
           </Reveal>
           <Reveal delay={0.85} distance={24}>
             <div className="hero-actions">
-              <Button variant="primary" href="#work" arrow magnetic label="Roll">See selected work</Button>
-              <Button href="#about" label="About">About me</Button>
+              <Button variant="primary" href="#work" arrow magnetic label="Roll">View selected work</Button>
+              <Button href="#contact" label="Hello">Get in touch</Button>
             </div>
           </Reveal>
         </div>
