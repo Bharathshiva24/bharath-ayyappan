@@ -79,7 +79,8 @@ export const WORK = [
     statusLabel: 'Concept · Prototype',
     description: 'A faster, warmer ordering flow for KFC India — skippable login, rewards up front, and a menu that never loses your cart.',
     tags: ['UX', 'Mobile UI', 'Prototype'],
-    image: null,
+    image: 'work/kfc-card.webp',
+    imageAlt: 'KFC concept: welcome, home and menu screens on a dark stage',
     slot: 'KFC-01',
     href: '#case-kfc'
   },
@@ -93,7 +94,8 @@ export const WORK = [
     statusLabel: 'Concept',
     description: 'Customisable dreaming: a research-led product ecosystem — dream band, earpiece and app — for living the third of life we spend asleep.',
     tags: ['Research', 'Systems', 'Future tech'],
-    image: null,
+    image: 'work/lucid-card.webp',
+    imageAlt: 'LUCID dream band glowing on a pillow at night',
     slot: 'LUCID-01',
     href: '#case-lucid'
   },
@@ -107,7 +109,8 @@ export const WORK = [
     statusLabel: '32K+ impressions',
     description: 'Five limited editions for a modular EV — what if a car launched like a sneaker drop?',
     tags: ['Visual design', 'Concept', 'Brand'],
-    image: null,
+    image: 'work/slate-card.webp',
+    imageAlt: 'Five Slate Auto edition renders lined up in a dark studio',
     slot: 'SLATE-01',
     href: '#case-slate'
   },
@@ -122,7 +125,8 @@ export const WORK = [
     statusLabel: 'Case studies on request',
     description: 'Seven years of product and experience design for enterprise, marketing and consumer clients. Walkthroughs available under NDA.',
     tags: ['UX strategy', 'Design systems', 'Conversion'],
-    image: null,
+    image: 'work/enterprise.webp',
+    imageAlt: 'Mindsprint logo over layered amber glass',
     href: '#contact'
   }
 ];
@@ -168,8 +172,8 @@ export const LAB = [
 export const VISUAL = [
   { title: 'Photojournalism', meta: 'Dinamalar · 2017', aspect: 'portrait', slot: 'PHOTO-01 — your own photo' },
   { title: 'Street & portrait', meta: 'Photography', aspect: 'portrait', slot: 'PHOTO-02 — your own photo' },
-  { title: 'Slate Auto editions', meta: 'Concept · 5 wraps', aspect: 'portrait', slot: 'SLATE-02 — your render', href: '#case-slate' },
-  { title: 'LUCID Dream Band', meta: 'Product render', aspect: 'portrait', slot: 'VIS-01', href: '#case-lucid' }
+  { title: 'Slate Auto editions', meta: 'Concept · 5 wraps', aspect: 'portrait', image: 'work/slate-promo.webp', alt: 'Slate Auto promo edition render', href: '#case-slate' },
+  { title: 'LUCID Dream Band', meta: 'Product render', aspect: 'portrait', image: 'work/lucid-band.webp', alt: 'LUCID dream band render in amber light', href: '#case-lucid' }
 ];
 
 export const STATS = [

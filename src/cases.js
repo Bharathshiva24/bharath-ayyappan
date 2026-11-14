@@ -9,7 +9,7 @@ export const CASES = {
     year: 'Self-initiated',
     status: 'concept',
     brief: 'A faster, warmer ordering experience for KFC India — rewards, offers and the menu, one thumb away.',
-    cover: { id: 'KFC-01', label: 'Cover — three key screens on a dark set', aspect: 'scope' },
+    cover: { id: 'KFC-01', src: 'work/kfc-cover.webp', label: 'Home, menu and product screens', aspect: 'scope' },
     facts: [
       ['Role', 'Product & visual designer (solo)'],
       ['Scope', 'UX audit, flows, UI, interactive prototype'],
@@ -30,7 +30,7 @@ export const CASES = {
           'Sign-in accepts email or mobile and can be skipped entirely — guests reach the menu first and are asked to log in only when it matters.',
           'A time-aware welcome (“Good evening, Justin”) opens over a full-bleed food shot, so the brand feels like a restaurant, not a form.'
         ],
-        img: { id: 'KFC-02', label: 'Login → personalised welcome', aspect: 'video' }
+        img: { id: 'KFC-02', src: 'work/kfc-onboarding.webp', label: 'Login and personalised welcome', aspect: 'video' }
       },
       {
         title: 'A home screen that earns its scroll',
@@ -39,7 +39,7 @@ export const CASES = {
           'Below, a six-tile category grid (Golden Edition, Box Meals, Buckets, Burgers, Snacks, Bowls) and a swipeable deals “ticket” with Apply Offer turn browsing into ordering.'
         ],
         bullets: ['Member ID always one tap away', 'Points + rewards surfaced, not buried', 'Offers applied in one step from Home'],
-        img: { id: 'KFC-03', label: 'Home — rewards, offers, categories, deals', aspect: 'video' }
+        img: { id: 'KFC-03', src: 'work/kfc-home.webp', label: 'Home: rewards, offers, categories and deals', aspect: 'video' }
       },
       {
         title: 'Order without losing your place',
@@ -47,7 +47,7 @@ export const CASES = {
           'The menu pins the store location and category tabs at the top and an In-store / Take Away switch at the bottom — the two decisions that change price and timing.',
           'Items add straight from the list; the button becomes a quantity stepper and a sticky cart bar keeps the running total visible. Product pages lead with the food, list highlights plainly, and keep quantity and price in one bar.'
         ],
-        img: { id: 'KFC-04', label: 'Menu → product → cart bar', aspect: 'video' }
+        img: { id: 'KFC-04', src: 'work/kfc-order.webp', label: 'Menu with in-store / take-away switch, and product detail', aspect: 'video' }
       },
       {
         title: 'Outcome',
@@ -67,7 +67,7 @@ export const CASES = {
     year: '2022 — Ongoing',
     status: 'concept',
     brief: 'What if the third of life we spend asleep could be lived, too? A product ecosystem for building a parallel space inside your dreams.',
-    cover: { id: 'LUCID-01', label: 'Cover — the LUCID Dream Band in a night-blue set', aspect: 'scope' },
+    cover: { id: 'LUCID-01', src: 'work/lucid-cover.webp', label: 'The LUCID Dream Band at night', aspect: 'scope' },
     facts: [
       ['Role', 'UI/UX designer'],
       ['Scope', 'Research, interaction & visual design, prototyping, testing'],
@@ -87,8 +87,7 @@ export const CASES = {
         body: [
           'A quantitative survey of about 100 people mapped sleep patterns, job type, stress and appetite for dream customisation. The answers reshaped the idea from a single gadget into an ecosystem.'
         ],
-        stats: [['76%', 'want to customise their dreams'], ['61%', 'would pay for personalisation'], ['69%', 'work in software roles']],
-        img: { id: 'LUCID-02', label: 'Survey highlights', aspect: 'flat' }
+        stats: [['76%', 'want to customise their dreams'], ['61%', 'would pay for personalisation'], ['69%', 'work in software roles']]
       },
       {
         title: 'Designed for',
@@ -99,7 +98,12 @@ export const CASES = {
         body: [
           'Your workspace syncs to LUCID Cloud. LUCID AI sends that data to the Dream Band, which converts it into signals during sleep to form the LUCID Work Space. The LNC4DT earpiece cancels noise, keeps you focused and reads brain activity back to the cloud; the LUCID app manages avatars, features and devices.'
         ],
-        img: { id: 'LUCID-03', label: 'Ecosystem — Dream Band, LNC4DT, app, cloud', aspect: 'flat' }
+        img: { id: 'LUCID-03', src: 'work/lucid-flow.webp', label: 'Ecosystem flow: user, Dream Band, LNC4DT, app and cloud', aspect: 'flat' },
+        gallery: [
+          { id: 'LUCID-05', src: 'work/lucid-band.webp', label: 'LUCID Dream Band' },
+          { id: 'LUCID-06', src: 'work/lucid-lnc4dt.webp', label: 'LNC4DT earpiece' },
+          { id: 'LUCID-07', src: 'work/lucid-app.webp', label: 'LUCID app sign-in' }
+        ]
       },
       {
         title: 'Features',
@@ -108,7 +112,7 @@ export const CASES = {
       {
         title: 'Process',
         body: ['Ecosystem flow, task flow and user flow led to paper sketches (May 2022), then lo-fi and hi-fi wireframes for the companion app.'],
-        img: { id: 'LUCID-04', label: 'Flows, sketches and hi-fi app screens', aspect: 'flat' }
+        img: { id: 'LUCID-04', src: 'work/lucid-sketch.webp', label: 'Paper sketches of the LUCID app, May 2022', aspect: 'flat' }
       },
       {
         title: 'Reflection',
@@ -128,7 +132,7 @@ export const CASES = {
     year: 'Self-initiated',
     status: 'concept',
     brief: 'Slate’s modular EV is a blank canvas. Five editions explore what happens when a car becomes a seasonal, brand-able drop.',
-    cover: { id: 'SLATE-01', label: 'Cover — the five editions in a row', aspect: 'scope' },
+    cover: { id: 'SLATE-01', src: 'work/slate-cover.webp', label: 'The five editions', aspect: 'scope' },
     facts: [
       ['Role', 'Concept & visual design'],
       ['Scope', 'Concepts, wraps, renders'],
@@ -147,11 +151,11 @@ export const CASES = {
         title: 'Five editions',
         bullets: ['Promo Edition — a streaming-show wrap with a Hollywood skyline', 'Logistics Beast — cardboard texture, packing tape, stacked boxes', 'Throwback Ride — retro blue phone-box finish with a charger accessory', 'Tour Vehicle — a full island-park safari livery', 'Gold Cruiser — wrapped in gold-foil confectionery vibes'],
         gallery: [
-          { id: 'SLATE-02', label: 'Promo Edition' },
-          { id: 'SLATE-03', label: 'Logistics Beast' },
-          { id: 'SLATE-04', label: 'Throwback Ride' },
-          { id: 'SLATE-05', label: 'Tour Vehicle' },
-          { id: 'SLATE-06', label: 'Gold Cruiser' }
+          { id: 'SLATE-02', src: 'work/slate-promo.webp', label: 'Promo Edition' },
+          { id: 'SLATE-03', src: 'work/slate-logistics.webp', label: 'Logistics Beast' },
+          { id: 'SLATE-04', src: 'work/slate-throwback.webp', label: 'Throwback Ride' },
+          { id: 'SLATE-05', src: 'work/slate-tour.webp', label: 'Tour Vehicle' },
+          { id: 'SLATE-06', src: 'work/slate-gold.webp', label: 'Gold Cruiser' }
         ]
       },
       {
