@@ -14,10 +14,10 @@ export default function Visual() {
         <div className="visual-grid">
           {VISUAL.map((v, i) => (
             <Reveal key={v.title} delay={i * 0.08}>
-              <figure className="visual-item cursor-target" data-cursor-label={v.href ? 'Case' : 'Frame'}>
-                <a className="visual-link" href={v.href} tabIndex={v.href ? undefined : -1} aria-disabled={v.href ? undefined : true}>
+              <figure className="visual-item cursor-target" data-cursor-label={!v.href ? 'Frame' : v.href.startsWith('#') ? 'Case' : 'Open'}>
+                <a className="visual-link" href={v.href} {...(/^https?:/.test(v.href || '') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} tabIndex={v.href ? undefined : -1} aria-disabled={v.href ? undefined : true}>
                   <Viewfinder>
-                    <Screen aspect={v.aspect} src={v.image} alt={v.alt || v.title} label={v.image ? undefined : v.slot} />
+                    <Screen aspect={v.aspect} src={v.image} alt={v.alt || v.title} fit={v.fit} label={v.image ? undefined : v.slot} />
                   </Viewfinder>
                   <figcaption>
                     <span className="visual-title">{v.title}</span>

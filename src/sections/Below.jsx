@@ -4,6 +4,7 @@ import Products from './Products';
 import Lab from './Lab';
 import Visual from './Visual';
 import About from './About';
+import Milestones from './Milestones';
 import Contact from './Contact';
 
 /** Everything below the hero, loaded as a separate chunk after first paint. */
@@ -15,6 +16,7 @@ export default function Below({ theme, onToggleTheme }) {
       <Products />
       <Lab theme={theme} />
       <Visual />
+      <Milestones />
       <About theme={theme} />
       <Contact theme={theme} onToggleTheme={onToggleTheme} />
     </>

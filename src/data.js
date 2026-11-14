@@ -70,8 +70,22 @@ export const WORK = [
     href: 'https://github.com/Bharathshiva24/AC-Widget'
   },
   {
-    id: 'kfc',
+    id: 'posterflix',
     index: '04',
+    title: 'Posterflix',
+    kind: 'Founder · E-commerce',
+    year: '2026 — Now',
+    status: 'shipped',
+    statusLabel: 'Live · posterflix.in',
+    description: '1,470 original wall posters, custom photo prints and an AR try-on — a store I designed, built and run.',
+    tags: ['Founder', 'E-commerce', 'AR'],
+    image: 'work/posterflix.webp',
+    imageAlt: 'Posterflix home page featuring the Little Tamil Moments poster set',
+    href: 'https://posterflix.in/'
+  },
+  {
+    id: 'kfc',
+    index: '05',
     title: 'KFC App — Concept Revamp',
     kind: 'Mobile app concept',
     year: 'Self-initiated',
@@ -86,7 +100,7 @@ export const WORK = [
   },
   {
     id: 'lucid',
-    index: '05',
+    index: '06',
     title: 'LUCID',
     kind: 'Speculative product',
     year: '2022 — Ongoing',
@@ -101,7 +115,7 @@ export const WORK = [
   },
   {
     id: 'slate',
-    index: '06',
+    index: '07',
     title: 'Slate Auto — Modular Mods',
     kind: 'Visual concept',
     year: 'Self-initiated',
@@ -116,7 +130,7 @@ export const WORK = [
   },
   {
     id: 'client',
-    index: '07',
+    index: '08',
     title: 'Enterprise & client work',
     slot: 'ENT-01',
     kind: 'Enterprise · Marketing · Consumer',
@@ -143,11 +157,11 @@ export const PRODUCTS = [
   {
     title: 'Posterflix',
     year: '2026 — Now',
-    status: 'building',
-    // TODO: replace with your own one-line description of Posterflix
-    line: 'A new venture for film lovers. In production — details soon.',
-    meta: ['Founder', 'In production'],
-    href: '#'
+    status: 'shipped',
+    statusLabel: 'Live',
+    line: 'An online poster store with 1,470 original designs — film, Tanjore, Tamil icons and more — plus custom photo prints and AR try-on to see a poster on your wall before you buy.',
+    meta: ['Founder', 'E-commerce', 'AR try-on'],
+    href: 'https://posterflix.in/'
   },
   {
     title: 'CreativeCat',
@@ -161,6 +175,10 @@ export const PRODUCTS = [
 ];
 
 export const LAB = [
+  { text: 'HoloGlobe', meta: 'Gesture UI · Concept · 2025', marquee: 'Pinch, rotate, zoom — no touch', image: 'work/hologlobe.webp', link: 'https://www.linkedin.com/feed/update/urn:li:activity:7402208935467999232/' },
+  { text: 'TimeLens', meta: 'Generative AI · 2025', marquee: 'Any place, any era', image: 'work/timelens.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_see-any-place-in-any-era-with-a-single-click-ugcPost-7399298393375858688-WMco/' },
+  { text: 'CineMagic', meta: 'iPad · Real-time AI VFX · 2024', marquee: 'Effects you can see on set', image: 'work/cinemagic-wide.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_filmmaking-specialeffects-cinemagic-ugcPost-7210902200292626432-rJnK/' },
+  { text: 'RouteReel', meta: 'Mobile · Accessibility · 2024', marquee: 'Your route, as a video', image: 'work/routereel-video.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_routereel-travelcompanion-explore-ugcPost-7213409573641048064-VbYv/' },
   { text: 'PocketDesk', meta: 'Android · WebRTC · MIT', marquee: 'Phone → desktop', image: 'work/pocketdesk-hero.webp', link: 'https://github.com/Bharathshiva24/pocketdesk' },
   { text: 'CineView', meta: 'Chrome · CSS 3D · v2.4.5', marquee: 'Your seat, in 3D', image: 'work/cineview-seat.webp', link: 'https://github.com/Bharathshiva24/CineView' },
   { text: 'AC Widget', meta: 'macOS · Python · MIT', marquee: 'Lid closed, AC off', image: 'work/acwidget-panel.webp', link: 'https://github.com/Bharathshiva24/AC-Widget' },
@@ -170,10 +188,20 @@ export const LAB = [
 
 // Replace label-only tiles with real images: add `image: '/visual/xyz.webp'`.
 export const VISUAL = [
-  { title: 'Photojournalism', meta: 'Dinamalar · 2017', aspect: 'portrait', slot: 'PHOTO-01 — your own photo' },
-  { title: 'Street & portrait', meta: 'Photography', aspect: 'portrait', slot: 'PHOTO-02 — your own photo' },
-  { title: 'Slate Auto editions', meta: 'Concept · 5 wraps', aspect: 'portrait', image: 'work/slate-promo.webp', alt: 'Slate Auto promo edition render', href: '#case-slate' },
-  { title: 'LUCID Dream Band', meta: 'Product render', aspect: 'portrait', image: 'work/lucid-band.webp', alt: 'LUCID dream band render in amber light', href: '#case-lucid' }
+  { title: 'Photojournalism', meta: 'Dinamalar · Intern · 2017', aspect: 'portrait', image: 'work/dinamalar.webp', alt: 'Dinamalar logo', fit: 'contain' },
+  { title: 'Slate Auto editions', meta: 'Concept · 5 wraps', aspect: 'portrait', image: 'work/slate-promo.webp', alt: 'Slate Auto promo edition render', fit: 'contain', href: '#case-slate' },
+  { title: 'CineMagic', meta: 'Real-time AI VFX · iPad', aspect: 'portrait', image: 'work/cinemagic.webp', alt: 'CineMagic origami effect previewed live on an iPad', href: 'https://www.linkedin.com/posts/bharathshivaux_filmmaking-specialeffects-cinemagic-ugcPost-7210902200292626432-rJnK/' },
+  { title: 'Adobe Stock', meta: 'Contributor · AI imagery', aspect: 'portrait', image: 'work/adobestock-tile.webp', alt: 'A selection of Bharath\'s Adobe Stock images', href: 'https://stock.adobe.com/in/contributor/211305623/bharath' }
+];
+
+// Milestones and recognition, newest first.
+export const MILESTONES = [
+  { year: '2026', title: 'Founded Posterflix', note: 'Original poster store with AR try-on.', href: 'https://posterflix.in/' },
+  { year: '2024', title: 'Google AI Essentials', note: 'Certificate from Google, via Coursera.', href: 'https://www.linkedin.com/posts/bharathshivaux_honored-to-have-earned-my-google-ai-essentials-share-7261434500021116928-6akg/' },
+  { year: '2023', title: 'Britannia — “1947% More History”', note: 'AI prompt engineer for the Independence Day film, with Rooted Films.', href: 'https://www.linkedin.com/posts/bharathshivaux_1947-more-history-share-7094215919576518656-lZ0K/' },
+  { year: '2023–25', title: 'Google Cloud Startup Program', note: 'CreativeCat, my AI content tool, was selected.', href: null },
+  { year: '2022', title: 'Tamil Nadu’s first AI-generated NFT', note: 'Created the artwork; shared by the Chief Minister of Tamil Nadu.', href: 'https://www.linkedin.com/posts/bharathshivaux_nft-digitalart-tamilnadu-share-7011149197215219712-_UY_/' },
+  { year: 'Ongoing', title: 'Adobe Stock contributor', note: 'A growing library of AI-assisted imagery, licensed worldwide.', href: 'https://stock.adobe.com/in/contributor/211305623/bharath' }
 ];
 
 export const STATS = [

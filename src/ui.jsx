@@ -48,7 +48,7 @@ export function Status({ state = 'shipped', children }) {
 
 export const Tag = ({ children }) => <span className="tag">{children}</span>;
 
-const RATIO = { scope: 2.39, flat: 1.85, video: 16 / 9, portrait: 0.8 };
+const RATIO = { scope: 2.39, flat: 1.85, video: 16 / 9, portrait: 0.8, photo: 1204 / 805 };
 export function Screen({ aspect = 'flat', src, alt = '', label, fit, eager }) {
   return (
     <div className="screen" style={{ aspectRatio: RATIO[aspect] }}>

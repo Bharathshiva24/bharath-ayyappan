@@ -68,8 +68,8 @@ export default function CaseStudy({ id }) {
             </div>
             {ch.img && <div className="case-media"><Reveal distance={30}><figure className="case-fig"><Img slot={ch.img} />{ch.img.src && <figcaption>{ch.img.label}</figcaption>}</figure></Reveal></div>}
             {ch.gallery && (
-              <div className="case-gallery" style={{ gridTemplateColumns: `repeat(${Math.min(ch.gallery.length, 5)}, 1fr)` }}>
-                {ch.gallery.map(g => <Reveal key={g.id} distance={24}><figure className="case-fig"><Img slot={{ ...g, aspect: 'portrait' }} /><figcaption>{g.label}</figcaption></figure></Reveal>)}
+              <div className="case-gallery" style={{ gridTemplateColumns: `repeat(${ch.gallery[0]?.aspect === 'photo' ? 3 : Math.min(ch.gallery.length, 5)}, 1fr)` }}>
+                {ch.gallery.map(g => <Reveal key={g.id} distance={24}><figure className="case-fig"><Img slot={{ aspect: 'portrait', ...g }} /><figcaption>{g.label}</figcaption></figure></Reveal>)}
               </div>
             )}
           </section>

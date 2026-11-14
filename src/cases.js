@@ -151,11 +151,11 @@ export const CASES = {
         title: 'Five editions',
         bullets: ['Promo Edition — a streaming-show wrap with a Hollywood skyline', 'Logistics Beast — cardboard texture, packing tape, stacked boxes', 'Throwback Ride — retro blue phone-box finish with a charger accessory', 'Tour Vehicle — a full island-park safari livery', 'Gold Cruiser — wrapped in gold-foil confectionery vibes'],
         gallery: [
-          { id: 'SLATE-02', src: 'work/slate-promo.webp', label: 'Promo Edition' },
-          { id: 'SLATE-03', src: 'work/slate-logistics.webp', label: 'Logistics Beast' },
-          { id: 'SLATE-04', src: 'work/slate-throwback.webp', label: 'Throwback Ride' },
-          { id: 'SLATE-05', src: 'work/slate-tour.webp', label: 'Tour Vehicle' },
-          { id: 'SLATE-06', src: 'work/slate-gold.webp', label: 'Gold Cruiser' }
+          { id: 'SLATE-02', src: 'work/slate-promo.webp', aspect: 'photo', label: 'Promo Edition' },
+          { id: 'SLATE-03', src: 'work/slate-logistics.webp', aspect: 'photo', label: 'Logistics Beast' },
+          { id: 'SLATE-04', src: 'work/slate-throwback.webp', aspect: 'photo', label: 'Throwback Ride' },
+          { id: 'SLATE-05', src: 'work/slate-tour.webp', aspect: 'photo', label: 'Tour Vehicle' },
+          { id: 'SLATE-06', src: 'work/slate-gold.webp', aspect: 'photo', label: 'Gold Cruiser' }
         ]
       },
       {

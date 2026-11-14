@@ -23,7 +23,7 @@ export default function About({ theme }) {
   return (
     <section className="section about" id="about" aria-labelledby="about-title">
       <div className="container">
-        <Slate scene="SC.05" items={['About', 'Chennai, IN']} />
+        <Slate scene="SC.06" items={['About', 'Chennai, IN']} />
         <h2 id="about-title" className="sr-only">About — Camera, Canvas, Code</h2>
         <div className="about-focus" aria-hidden="true">
           <TrueFocus
