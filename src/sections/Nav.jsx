@@ -1,0 +1,80 @@
+import { useEffect, useState } from 'react';
+import StaggeredMenu from '../bits/StaggeredMenu';
+import '../bits/StaggeredMenu.css';
+import { NAV, PROFILE } from '../data';
+import { Status } from '../ui';
+
+const useMedia = q => {
+  const [m, setM] = useState(() => typeof window !== 'undefined' && window.matchMedia(q).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(q);
+    const on = () => setM(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, [q]);
+  return m;
+};
+
+const Wordmark = () => (
+  <a className="nav-name cursor-target" href="#top" data-cursor-label="Top">
+    {PROFILE.name}
+    <span className="nav-role">{PROFILE.role}</span>
+  </a>
+);
+
+export default function Nav({ theme }) {
+  const mobile = useMedia('(max-width: 860px)');
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => e.isIntersecting && setActive('#' + e.target.id)),
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+    const observe = () => NAV.forEach(n => { const el = document.querySelector(n.href); if (el) io.observe(el); });
+    observe();
+    window.addEventListener('sections-ready', observe);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('sections-ready', observe); io.disconnect(); };
+  }, []);
+
+  if (mobile) {
+    const ink = theme === 'light' ? '#141312' : '#f3efe7';
+    return (
+      <StaggeredMenu
+        isFixed
+        position="right"
+        logo={<Wordmark />}
+        items={[...NAV, { label: 'Contact', href: '#contact' }].map(n => ({ label: n.label, link: n.href, ariaLabel: `Go to ${n.label}` }))}
+        socialItems={[{ label: 'LinkedIn', link: PROFILE.links.linkedin }, { label: 'GitHub', link: PROFILE.links.github }]}
+        colors={['#4a3415', '#ffb03a']}
+        accentColor="#8a4f00"
+        menuButtonColor={ink}
+        openMenuButtonColor="#141312"
+        displayItemNumbering
+        className="mobile-menu"
+      />
+    );
+  }
+
+  return (
+    <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
+      <div className="container nav-inner">
+        <Wordmark />
+        <nav aria-label="Main">
+          <ul className="nav-links">
+            {NAV.map(n => (
+              <li key={n.href}>
+                <a className="cursor-target" href={n.href} aria-current={active === n.href ? 'true' : undefined}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a className="nav-cta cursor-target" href="#contact" data-cursor-label="Say hi"><Status state="shipped">{PROFILE.available}</Status></a>
+      </div>
+    </header>
+  );
+}

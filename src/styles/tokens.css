@@ -1,0 +1,69 @@
+/* Director's Cut — generated from the design system tokens.json */
+:root, [data-theme="dark"] {
+  --bg: #0a0a0b;
+  --surface: #121214;
+  --surface-raised: #1a1a1d;
+  --screen: #050506;
+  --line: #2a2a2e;
+  --line-control: #6e6c72;
+  --ink: #f3efe7;
+  --ink-muted: #a6a29a;
+  --ink-faint: #8a867e;
+  --tungsten: #ffb03a;
+  --tungsten-text: #ffb03a;
+  --on-tungsten: #141312;
+  --tungsten-soft: #4a3415;
+  --safelight: #ff6a4d;
+  --phosphor: #62d68f;
+  --focus-ring: 0 0 0 2px #0a0a0b, 0 0 0 4px #ffb03a;
+  --lift: 0 24px 48px -24px rgba(0,0,0,0.8);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #f4f1ea;
+  --surface: #fbf9f4;
+  --surface-raised: #ffffff;
+  --screen: #1b1a18;
+  --line: #dcd7cc;
+  --line-control: #8c8576;
+  --ink: #141312;
+  --ink-muted: #57534b;
+  --ink-faint: #6b665c;
+  --tungsten: #ffb03a;
+  --tungsten-text: #8a4f00;
+  --on-tungsten: #141312;
+  --tungsten-soft: #f6dfb5;
+  --safelight: #b8321a;
+  --phosphor: #1b6e3d;
+  --focus-ring: 0 0 0 2px #f4f1ea, 0 0 0 4px #8a4f00;
+  --lift: 0 24px 48px -28px rgba(20,19,18,0.35);
+  color-scheme: light;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --radius-0: 0px;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+  --container-max: 1280px;
+  --reading-max: 68ch;
+  --grid-columns: 12;
+  --gutter: 24px;
+  --aspect-scope: 2.39 / 1;
+  --aspect-flat: 1.85 / 1;
+  --aspect-video: 16 / 9;
+  --aspect-portrait: 4 / 5;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: Geist, "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
