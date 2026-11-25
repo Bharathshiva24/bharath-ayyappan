@@ -185,3 +185,16 @@ html[data-motion="reduce"] .theme-toast { animation: none; }
 @media (max-width: 380px) { .mobile-tools .tc-btn { height: 30px; min-width: 30px; width: 30px; } .mobile-menu .nav-name { font-size: calc(13px * var(--ts)); } }
 .dp-sec-first { border-top: 0; padding-top: 0; }
 @media (max-width: 860px) { .mobile-tools { right: 60px !important; } }
+
+/* Product row that opens a notice instead of a link */
+.product-btn { width: 100%; background: none; border: 0; border-top: var(--border-w) var(--border-style) var(--line); font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.product-btn .product-arrow { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1.5px solid currentColor; border-radius: 50%; font: 600 13px/1 var(--font-sans); font-style: italic; }
+/* Notice dialog */
+.notice-backdrop { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; padding: var(--space-6); background: color-mix(in srgb, var(--bg) 70%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: nb-in .25s var(--ease); }
+.notice { width: min(480px, 100%); padding: var(--space-8); background: var(--surface-raised); color: var(--ink); border: var(--border-w) solid var(--line-control); border-radius: var(--radius-md); box-shadow: var(--card-shadow), 0 40px 90px -30px rgba(0,0,0,.6); animation: n-in .35s var(--ease); }
+.notice-status { display: inline-flex; align-items: center; gap: var(--space-2); font: 500 calc(12px * var(--ts))/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.notice-status .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--safelight); animation: rec 1.6s steps(2, jump-none) infinite; }
+.notice-title { margin: var(--space-4) 0 var(--space-3); font: var(--display-weight) calc(28px * var(--ts))/1.15 var(--font-display); letter-spacing: -.02em; font-style: var(--display-style); }
+.notice-body { margin: 0 0 var(--space-6); font-size: calc(16px * var(--ts)); line-height: 1.6; color: var(--ink-muted); }
+@keyframes nb-in { from { opacity: 0; } }
+@keyframes n-in { from { opacity: 0; transform: translateY(12px) scale(.98); } }

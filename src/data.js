@@ -169,7 +169,11 @@ export const PRODUCTS = [
     statusLabel: 'Google Cloud Startup Program',
     line: 'An AI content-writing and generation tool, selected for the Google Cloud Startup Program.',
     meta: ['Founder', 'Generative AI', 'Web app'],
-    href: '#'
+    href: null,
+    notice: {
+      title: 'Migration in progress',
+      body: 'CreativeCat is currently undergoing migration. We’re working on bringing you an improved experience. Please bear with us and check back shortly. Thank you for your patience!'
+    }
   }
 ];
 
