@@ -8,7 +8,7 @@ import Milestones from './Milestones';
 import Contact from './Contact';
 
 /** Everything below the hero, loaded as a separate chunk after first paint. */
-export default function Below({ theme, onToggleTheme }) {
+export default function Below({ theme }) {
   useEffect(() => { window.dispatchEvent(new Event('sections-ready')); }, []);
   return (
     <>
@@ -18,7 +18,7 @@ export default function Below({ theme, onToggleTheme }) {
       <Visual />
       <Milestones />
       <About theme={theme} />
-      <Contact theme={theme} onToggleTheme={onToggleTheme} />
+      <Contact />
     </>
   );
 }

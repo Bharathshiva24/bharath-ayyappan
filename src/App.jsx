@@ -7,6 +7,8 @@ import './bits/Noise.css';
 import TargetCursor from './bits/TargetCursor';
 import './bits/TargetCursor.css';
 import Nav from './sections/Nav';
+import { useTheme } from './theme/ThemeProvider';
+import { ThemeToast } from './theme/ThemeControls';
 import Hero from './sections/Hero';
 const Below = lazy(() => import('./sections/Below'));
 const CaseStudy = lazy(() => import('./sections/CaseStudy'));
@@ -15,12 +17,8 @@ const caseFromHash = () => { const m = /^#case-([a-z0-9-]+)$/.exec(window.locati
 
 gsap.registerPlugin(ScrollTrigger);
 
-const readTheme = () => {
-  try { return localStorage.getItem('theme') || 'dark'; } catch { return 'dark'; }
-};
-
 export default function App() {
-  const [theme, setTheme] = useState(readTheme);
+  const { mode: theme, palette, theme: skin, reduceMotion } = useTheme();
   const [finePointer, setFinePointer] = useState(false);
   const [caseId, setCaseId] = useState(caseFromHash);
   const lenisRef = useRef(null);
@@ -46,16 +44,10 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    try { localStorage.setItem('theme', theme); } catch { /* storage unavailable */ }
-  }, [theme]);
-
   // Smooth scroll, kept in step with GSAP ScrollTrigger. Off for reduced motion.
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setFinePointer(window.matchMedia('(pointer: fine) and (hover: hover)').matches && !reduce);
-    if (reduce) return;
+    setFinePointer(window.matchMedia('(pointer: fine) and (hover: hover)').matches);
+    if (reduceMotion) return;
     const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1 });
     lenisRef.current = lenis;
     lenis.on('scroll', ScrollTrigger.update);
@@ -75,10 +67,8 @@ export default function App() {
       lenis.scrollTo(el, { offset: a.getAttribute('href') === '#top' ? 0 : -72, duration: 1.4 });
     };
     document.addEventListener('click', onClick);
-    return () => { gsap.ticker.remove(raf); lenis.destroy(); document.removeEventListener('click', onClick); window.removeEventListener('sections-ready', refresh); };
-  }, []);
-
-  const toggle = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'));
+    return () => { gsap.ticker.remove(raf); lenis.destroy(); lenisRef.current = null; document.removeEventListener('click', onClick); window.removeEventListener('sections-ready', refresh); };
+  }, [reduceMotion]);
 
   return (
     <>
@@ -93,16 +83,19 @@ export default function App() {
           <>
             <Hero theme={theme} />
             <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
-              <Below theme={theme} onToggleTheme={toggle} />
+              <Below theme={theme} />
             </Suspense>
           </>
         )}
       </main>
       {/* Film grain at 24 fps — the projector feel. */}
-      <Noise fixed opacity={theme === 'dark' ? 0.07 : 0.05} fps={24} blendMode="overlay" contrast={0.5} dust={theme === "dark" ? 0.15 : 0} />
-      {finePointer && (
-        <TargetCursor targetSelector=".cursor-target" cursorColor={theme === 'dark' ? '#ffb03a' : '#8a4f00'} blendMode="normal" size={32} cornerSize={10} thickness={1.5} padding={8} spinDuration={4} />
+      {!reduceMotion && skin.noise > 0 && (
+        <Noise fixed opacity={theme === 'dark' ? skin.noise : skin.noise * 0.7} fps={24} blendMode="overlay" contrast={0.5} dust={theme === 'dark' ? 0.15 : 0} />
       )}
+      {finePointer && !reduceMotion && (
+        <TargetCursor targetSelector=".cursor-target" cursorColor={palette['tungsten-text']} blendMode="normal" size={32} cornerSize={10} thickness={1.5} padding={8} spinDuration={4} />
+      )}
+      <ThemeToast />
     </>
   );
 }

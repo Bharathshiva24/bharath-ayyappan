@@ -3,14 +3,17 @@ import '../bits/LightRays.css';
 import SplitText from '../bits/SplitText';
 import { Slate, Button, Reveal } from '../ui';
 import { PROFILE } from '../data';
+import { useTheme } from '../theme/ThemeProvider';
 
-export default function Hero({ theme }) {
+export default function Hero() {
+  const { mode: theme, palette, theme: skin, reduceMotion } = useTheme();
   return (
     <section className="hero" id="top" aria-label="Introduction">
-      <div className="hero-rays" aria-hidden="true">
+      {skin.rays && !reduceMotion && <div className="hero-rays" aria-hidden="true">
         <LightRays
+          key={skin.id + theme}
           raysOrigin="top-center"
-          raysColor="#ffb03a"
+          raysColor={palette.tungsten}
           raysSpeed={0.6}
           lightSpread={0.7}
           rayLength={2.2}
@@ -24,7 +27,7 @@ export default function Hero({ theme }) {
           lightMode={theme === 'light'}
           maxDevicePixelRatio={1.5}
         />
-      </div>
+      </div>}
 
       <div className="container hero-inner">
         <Slate scene="SC.00" items={[PROFILE.name, PROFILE.location, PROFILE.role]} />

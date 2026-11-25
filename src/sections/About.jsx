@@ -6,9 +6,10 @@ import '../bits/TrueFocus.css';
 import CountUp from '../bits/CountUp';
 import { STATS, JOURNEY } from '../data';
 import { Slate, Reveal } from '../ui';
+import { useTheme } from '../theme/ThemeProvider';
 
 export default function About({ theme }) {
-  const tung = theme === 'light' ? '#8a4f00' : '#ffb03a';
+  const tung = useTheme().palette['tungsten-text'];
   const reel = useRef(null);
 
   // The reel line fills as you scroll through the story.

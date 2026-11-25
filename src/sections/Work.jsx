@@ -3,15 +3,18 @@ import '../bits/SpotlightCard.css';
 import ScrollVelocity from '../bits/ScrollVelocity';
 import '../bits/ScrollVelocity.css';
 import { WORK, DISCIPLINES } from '../data';
+import { useTheme } from '../theme/ThemeProvider';
+import { alpha } from '../theme/engine';
 import { SectionHead, Slate, Status, Tag, Screen, Reveal } from '../ui';
 
 function ProjectCard({ p, theme, featured }) {
+  const { palette } = useTheme();
   const external = /^https?:/.test(p.href);
   return (
     <SpotlightCard
       className={`project ${featured ? 'project-featured' : ''}`}
       theme={theme}
-      spotlightColor="rgba(255, 176, 58, 0.22)"
+      spotlightColor={alpha(palette.tungsten, 0.22)}
       spotlightSize={featured ? 520 : 360}
       intensity={0.18}
       borderGlow={0.5}

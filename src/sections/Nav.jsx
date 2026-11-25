@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import StaggeredMenu from '../bits/StaggeredMenu';
 import '../bits/StaggeredMenu.css';
 import { NAV, PROFILE } from '../data';
+import ThemeControls from '../theme/ThemeControls';
+import { useTheme } from '../theme/ThemeProvider';
 
 const useMedia = q => {
   const [m, setM] = useState(() => typeof window !== 'undefined' && window.matchMedia(q).matches);
@@ -21,7 +23,8 @@ const Wordmark = () => (
   </a>
 );
 
-export default function Nav({ theme }) {
+export default function Nav() {
+  const { palette: p, theme: skin, mode } = useTheme();
   const mobile = useMedia('(max-width: 860px)');
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
@@ -41,21 +44,24 @@ export default function Nav({ theme }) {
   }, []);
 
   if (mobile) {
-    const ink = theme === 'light' ? '#141312' : '#f3efe7';
     return (
+      <>
       <StaggeredMenu
+        key={skin.id + mode}
         isFixed
         position="right"
         logo={<Wordmark />}
         items={[...NAV, { label: 'Contact', href: '#contact' }].map(n => ({ label: n.label, link: n.href, ariaLabel: `Go to ${n.label}` }))}
         socialItems={[{ label: 'LinkedIn', link: PROFILE.links.linkedin }, { label: 'GitHub', link: PROFILE.links.github }]}
-        colors={['#4a3415', '#ffb03a']}
-        accentColor="#8a4f00"
-        menuButtonColor={ink}
-        openMenuButtonColor="#141312"
+        colors={[p['tungsten-soft'], p.tungsten]}
+        accentColor={p['tungsten-text']}
+        menuButtonColor={p.ink}
+        openMenuButtonColor={p.ink}
         displayItemNumbering
         className="mobile-menu"
       />
+      <div className="mobile-tools"><ThemeControls compact /></div>
+      </>
     );
   }
 
@@ -72,7 +78,10 @@ export default function Nav({ theme }) {
             ))}
           </ul>
         </nav>
-        <a className="nav-cta cursor-target" href="#contact" data-cursor-label="Say hi">Get in touch <span aria-hidden="true">→</span></a>
+        <div className="nav-tools">
+          <ThemeControls />
+          <a className="nav-cta cursor-target" href="#contact" data-cursor-label="Say hi">Get in touch <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </header>
   );

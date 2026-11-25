@@ -4,7 +4,7 @@ import '../bits/VariableProximity.css';
 import { PROFILE } from '../data';
 import { Slate, Button, Reveal } from '../ui';
 
-export default function Contact({ theme, onToggleTheme }) {
+export default function Contact() {
   const box = useRef(null);
   return (
     <section className="section contact" id="contact" aria-labelledby="contact-title">
@@ -35,9 +35,7 @@ export default function Contact({ theme, onToggleTheme }) {
       <footer className="container footer">
         <span>© 2026 {PROFILE.name}</span>
         <span className="footer-mid">Designed &amp; built in Chennai · React, GSAP &amp; React Bits</span>
-        <button className="theme-toggle cursor-target" type="button" onClick={onToggleTheme} data-cursor-label="Lights" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>
-          {theme === 'dark' ? 'Lights up' : 'Lights down'}
-        </button>
+        <span>Theme, colour &amp; accessibility settings are in the header</span>
       </footer>
     </section>
   );

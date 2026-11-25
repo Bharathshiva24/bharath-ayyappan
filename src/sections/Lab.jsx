@@ -2,9 +2,10 @@ import FlowingMenu from '../bits/FlowingMenu';
 import '../bits/FlowingMenu.css';
 import { LAB } from '../data';
 import { SectionHead } from '../ui';
+import { useTheme } from '../theme/ThemeProvider';
 
 export default function Lab({ theme }) {
-  const dark = theme !== 'light';
+  const { palette: p, theme: skin, mode } = useTheme();
   return (
     <section className="section lab" id="lab" aria-labelledby="lab-title">
       <div className="container">
@@ -19,11 +20,12 @@ export default function Lab({ theme }) {
         <FlowingMenu
           items={LAB}
           speed={50}
-          textColor={dark ? '#f3efe7' : '#141312'}
-          bgColor={dark ? '#0a0a0b' : '#f4f1ea'}
-          marqueeBgColor="#ffb03a"
-          marqueeTextColor="#141312"
-          borderColor={dark ? '#2a2a2e' : '#dcd7cc'}
+          key={skin.id + mode}
+          textColor={p.ink}
+          bgColor={p.bg}
+          marqueeBgColor={p.tungsten}
+          marqueeTextColor={p['on-tungsten']}
+          borderColor={p.line}
           showIndex
           showArrow
           imageShape="rounded"
