@@ -28,7 +28,6 @@ export default function Contact({ theme, onToggleTheme }) {
               <Button variant="primary" href={PROFILE.links.linkedin} arrow magnetic label="Connect">Message me on LinkedIn</Button>
             )}
             <Button href={PROFILE.links.github} arrow label="Code">GitHub</Button>
-            <Button variant="ghost" href={PROFILE.links.resume} arrow label="CV">Download résumé</Button>
           </div>
         </Reveal>
       </div>

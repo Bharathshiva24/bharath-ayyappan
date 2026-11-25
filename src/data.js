@@ -8,8 +8,7 @@ export const PROFILE = {
   email: '',
   links: {
     linkedin: 'https://www.linkedin.com/in/bharathshivaux/',
-    github: 'https://github.com/Bharathshiva24',
-    resume: '#'
+    github: 'https://github.com/Bharathshiva24'
   }
 };
 
@@ -52,7 +51,7 @@ export const WORK = [
     tags: ['Product design', 'Android', 'WebRTC'],
     image: 'work/pocketdesk-tv.webp',
     imageAlt: 'PocketDesk desktop running on a TV, with Photos and Notes windows',
-    href: 'https://github.com/Bharathshiva24/pocketdesk'
+    href: 'https://pocketdesk-pi.vercel.app/'
   },
   {
     id: 'acwidget',
@@ -179,7 +178,7 @@ export const LAB = [
   { text: 'TimeLens', meta: 'Generative AI · 2025', marquee: 'Any place, any era', image: 'work/timelens.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_see-any-place-in-any-era-with-a-single-click-ugcPost-7399298393375858688-WMco/' },
   { text: 'CineMagic', meta: 'iPad · Real-time AI VFX · 2024', marquee: 'Effects you can see on set', image: 'work/cinemagic-wide.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_filmmaking-specialeffects-cinemagic-ugcPost-7210902200292626432-rJnK/' },
   { text: 'RouteReel', meta: 'Mobile · Accessibility · 2024', marquee: 'Your route, as a video', image: 'work/routereel-video.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_routereel-travelcompanion-explore-ugcPost-7213409573641048064-VbYv/' },
-  { text: 'PocketDesk', meta: 'Android · WebRTC · MIT', marquee: 'Phone → desktop', image: 'work/pocketdesk-hero.webp', link: 'https://github.com/Bharathshiva24/pocketdesk' },
+  { text: 'PocketDesk', meta: 'Android · WebRTC · MIT', marquee: 'Phone → desktop', image: 'work/pocketdesk-hero.webp', link: 'https://pocketdesk-pi.vercel.app/' },
   { text: 'CineView', meta: 'Chrome · CSS 3D · v2.4.5', marquee: 'Your seat, in 3D', image: 'work/cineview-seat.webp', link: 'https://github.com/Bharathshiva24/CineView' },
   { text: 'AC Widget', meta: 'macOS · Python · MIT', marquee: 'Lid closed, AC off', image: 'work/acwidget-panel.webp', link: 'https://github.com/Bharathshiva24/AC-Widget' },
   { text: 'Google TV for Mac', meta: 'Electron · Widevine · MIT', marquee: 'Every service, one remote', link: 'https://github.com/Bharathshiva24/Google-TV' },
