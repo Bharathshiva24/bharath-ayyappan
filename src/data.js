@@ -139,7 +139,7 @@ export const WORK = [
     description: 'Seven years of product and experience design for enterprise, marketing and consumer clients. Walkthroughs available under NDA.',
     tags: ['UX strategy', 'Design systems', 'Conversion'],
     image: 'work/enterprise.webp',
-    imageAlt: 'Mindsprint logo over layered amber glass',
+    imageAlt: 'Mindsprint logo',
     href: '#contact'
   }
 ];
