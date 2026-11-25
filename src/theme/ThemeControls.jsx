@@ -32,6 +32,12 @@ const Icon = {
       <path d="M4 7h9M17 7h3M4 17h3M11 17h9" /><circle cx="15" cy="7" r="2" /><circle cx="9" cy="17" r="2" />
     </svg>
   ),
+  access: (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.5" /><circle cx="12" cy="7.2" r="1.3" fill="currentColor" stroke="none" />
+      <path d="M7.5 9.8 12 10.8l4.5-1M12 10.8v3.4M12 14.2l-2.4 4M12 14.2l2.4 4" />
+    </svg>
+  ),
   close: (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
   )
@@ -64,7 +70,7 @@ function Segmented({ label, options, value, onChange }) {
   );
 }
 
-function Panel({ onClose, anchorRef }) {
+function Panel({ onClose, anchorRef, kind }) {
   const { settings, update, setSkin, randomise, reset, mode } = useTheme();
   const ref = useRef(null);
 
@@ -79,11 +85,12 @@ function Panel({ onClose, anchorRef }) {
   }, [onClose, anchorRef]);
 
   return (
-    <div className="dp" ref={ref} role="dialog" aria-label="Display settings" data-lenis-prevent>
+    <div className="dp" ref={ref} role="dialog" aria-label={kind === 'a11y' ? 'Accessibility settings' : 'Display settings'} data-lenis-prevent>
       <div className="dp-head">
-        <h2 className="dp-title">Display</h2>
-        <button type="button" className="dp-icon" onClick={onClose} aria-label="Close display settings">{Icon.close}</button>
+        <h2 className="dp-title">{kind === 'a11y' ? 'Accessibility' : 'Display'}</h2>
+        <button type="button" className="dp-icon" onClick={onClose} aria-label="Close">{Icon.close}</button>
       </div>
+      {kind === 'display' && <>
 
       <section className="dp-sec">
         <h3 className="dp-label">Appearance</h3>
@@ -144,8 +151,9 @@ function Panel({ onClose, anchorRef }) {
         <p className="dp-hint">Text and button colours adjust automatically to stay readable.</p>
       </section>
 
-      <section className="dp-sec">
-        <h3 className="dp-label">Accessibility</h3>
+      </>}
+      {kind === 'a11y' && <>
+      <section className="dp-sec dp-sec-first">
         <div className="dp-field">
           <span className="dp-switch-label" id="ts-label">Text size</span>
           <Segmented
@@ -161,7 +169,9 @@ function Panel({ onClose, anchorRef }) {
         <Switch label="Underline links" checked={settings.underline} onChange={v => update({ underline: v })} />
       </section>
 
-      <button type="button" className="dp-reset" onClick={e => reset(pt(e))}>Reset to defaults</button>
+      <button type="button" className="dp-reset" onClick={() => update({ scale: 1, motion: 'system', contrast: false, readable: false, underline: false })}>Reset accessibility</button>
+      </>}
+      {kind === 'display' && <button type="button" className="dp-reset" onClick={e => reset(pt(e))}>Reset to defaults</button>}
     </div>
   );
 }
@@ -186,9 +196,10 @@ export function ThemeToast() {
 /** Randomise · Dark/Light · Display panel — used in the desktop header and the mobile bar. */
 export default function ThemeControls({ compact = false }) {
   const { randomise, toggleMode, mode } = useTheme();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(null);
   const [spin, setSpin] = useState(0);
   const btnRef = useRef(null);
+  const a11yRef = useRef(null);
 
   return (
     <div className={`tc ${compact ? 'tc-compact' : ''}`} onPointerEnter={warmFonts} onFocus={warmFonts}>
@@ -197,7 +208,6 @@ export default function ThemeControls({ compact = false }) {
         className="tc-btn cursor-target"
         data-cursor-label="Shuffle"
         aria-label="Randomise theme"
-        title="Randomise theme"
         onClick={e => { setSpin(s => s + 1); randomise(pt(e)); }}
       >
         <span className="tc-dice" style={{ transform: `rotate(${spin * 180}deg)` }}>{Icon.dice}</span>
@@ -208,7 +218,6 @@ export default function ThemeControls({ compact = false }) {
         className="tc-btn tc-icon cursor-target"
         data-cursor-label={mode === 'dark' ? 'Lights up' : 'Lights down'}
         aria-label={`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`}
-        title={`Switch to ${mode === 'dark' ? 'light' : 'dark'} mode`}
         onClick={e => toggleMode(pt(e))}
       >
         {mode === 'dark' ? Icon.sun : Icon.moon}
@@ -218,15 +227,26 @@ export default function ThemeControls({ compact = false }) {
         type="button"
         className="tc-btn tc-icon cursor-target"
         data-cursor-label="Display"
-        aria-label="Display and accessibility settings"
-        aria-expanded={open}
+        aria-label="Display settings: appearance, theme and colour"
+        aria-expanded={open === 'display'}
         aria-haspopup="dialog"
-        title="Display and accessibility"
-        onClick={() => setOpen(o => !o)}
+        onClick={() => setOpen(o => (o === 'display' ? null : 'display'))}
       >
         {Icon.sliders}
       </button>
-      {open && <Panel onClose={() => setOpen(false)} anchorRef={btnRef} />}
+      <button
+        ref={a11yRef}
+        type="button"
+        className="tc-btn tc-icon cursor-target"
+        data-cursor-label="Access"
+        aria-label="Accessibility settings"
+        aria-expanded={open === 'a11y'}
+        aria-haspopup="dialog"
+        onClick={() => setOpen(o => (o === 'a11y' ? null : 'a11y'))}
+      >
+        {Icon.access}
+      </button>
+      {open && <Panel key={open} kind={open} onClose={() => setOpen(null)} anchorRef={open === 'a11y' ? a11yRef : btnRef} />}
     </div>
   );
 }

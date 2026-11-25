@@ -137,7 +137,7 @@ for t in SPECS:
      'display-weight':st['dw'],'display-tracking':st['dt'],'display-case':st['dc'],'display-style':st['ds'],
      'radius-0':st['r0'],'radius-sm':st['rs'],'radius-md':st['rm'],'radius-pill':st['rp'],'border-w':st['bw'],'border-style':st['bs'],
      'card-border':st['card'],'card-shadow':st['shadow'],'card-bg':st.get('cardbg','var(--surface)'),'btn-case':st['btnc'],'btn-tracking':st['btnt'],'btn-weight':st['btnw'],'btn-shadow':st['btnshadow'],
-     'media-filter':st['filter'],'work-cols':st['cols'],'visual-cols':st['vcols'],'hero-align':st['align'],'hero-indent':'auto' if st['align']=='center' else '0','hero-justify':'center' if st['align']=='center' else 'space-between','slate-justify':'center' if st['align']=='center' else 'flex-start',
+     'media-filter':st['filter'],'work-cols':st['cols'],'visual-cols':st['vcols'],'hero-align':st['align'],'hero-indent':'auto' if st['align']=='center' else '0','hero-justify':'center' if st['align']=='center' else 'space-between','slate-justify':'center' if st['align']=='center' else 'flex-start','hero-foot-dir':'column' if st['align']=='center' else 'row','hero-foot-items':'center' if st['align']=='center' else 'flex-end','hero-intro-max':'60ch' if st['align']=='center' else '46ch',
      'head-cols':'1fr' if st['head']=='stack' else '1fr minmax(0, 420px)','card-rule':'1px solid var(--ink)' if st.get('cardrule') else '0 solid transparent',
      'glass':'blur(18px) saturate(1.3)' if st['glass'] else 'none','card-alpha':'72%' if st['glass'] else '100%'}
     css.append(f'[data-skin="{t["id"]}"] {{'+' '.join(f'--{k}: {v};' for k,v in tok.items())+'}')
