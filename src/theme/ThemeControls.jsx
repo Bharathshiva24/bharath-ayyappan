@@ -111,6 +111,7 @@ function Panel({ onClose, anchorRef }) {
                 aria-checked={settings.skin === t.id}
                 className="dp-theme"
                 title={t.tag}
+                aria-label={`${t.name}: ${t.tag}`}
                 onClick={e => setSkin(t.id, pt(e))}
                 style={{ '--sw-bg': p.bg, '--sw-ink': p.ink, '--sw-acc': p.tungsten, '--sw-line': p['line-control'] }}
               >
