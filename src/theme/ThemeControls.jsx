@@ -1,6 +1,4 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import DecryptedText from '../bits/DecryptedText';
-import { ACCENTS, THEMES, warmFonts } from './engine';
 import { useTheme } from './ThemeProvider';
 
 const pt = e => {
@@ -9,14 +7,6 @@ const pt = e => {
 };
 
 const Icon = {
-  dice: (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
-      <circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none" /><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor" stroke="none" />
-      <circle cx="15.5" cy="8.5" r="1.2" fill="currentColor" stroke="none" /><circle cx="8.5" cy="15.5" r="1.2" fill="currentColor" stroke="none" />
-      <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
-    </svg>
-  ),
   sun: (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
       <circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
@@ -25,11 +15,6 @@ const Icon = {
   moon: (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" aria-hidden="true">
       <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
-    </svg>
-  ),
-  sliders: (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
-      <path d="M4 7h9M17 7h3M4 17h3M11 17h9" /><circle cx="15" cy="7" r="2" /><circle cx="9" cy="17" r="2" />
     </svg>
   ),
   access: (
@@ -71,7 +56,7 @@ function Segmented({ label, options, value, onChange }) {
 }
 
 function Panel({ onClose, anchorRef, kind }) {
-  const { settings, update, setSkin, randomise, reset, mode } = useTheme();
+  const { settings, update } = useTheme();
   const ref = useRef(null);
 
   useEffect(() => {
@@ -90,68 +75,6 @@ function Panel({ onClose, anchorRef, kind }) {
         <h2 className="dp-title">{kind === 'a11y' ? 'Accessibility' : 'Display'}</h2>
         <button type="button" className="dp-icon" onClick={onClose} aria-label="Close">{Icon.close}</button>
       </div>
-      {kind === 'display' && <>
-
-      <section className="dp-sec">
-        <h3 className="dp-label">Appearance</h3>
-        <Segmented
-          label="Appearance"
-          value={settings.mode}
-          onChange={(v, e) => update({ mode: v }, pt(e))}
-          options={[{ value: 'dark', label: 'Dark' }, { value: 'light', label: 'Light' }, { value: 'system', label: 'Auto' }]}
-        />
-      </section>
-
-      <section className="dp-sec">
-        <div className="dp-row">
-          <h3 className="dp-label">Theme</h3>
-          <button type="button" className="dp-random" onClick={e => randomise(pt(e))}>{Icon.dice}<span>Randomise</span></button>
-        </div>
-        <div className="dp-themes" role="radiogroup" aria-label="Theme">
-          {THEMES.map(t => {
-            const p = t.palettes[mode];
-            return (
-              <button
-                key={t.id}
-                type="button"
-                role="radio"
-                aria-checked={settings.skin === t.id}
-                className="dp-theme"
-                title={t.tag}
-                aria-label={`${t.name}: ${t.tag}`}
-                onClick={e => setSkin(t.id, pt(e))}
-                style={{ '--sw-bg': p.bg, '--sw-ink': p.ink, '--sw-acc': p.tungsten, '--sw-line': p['line-control'] }}
-              >
-                <span className="dp-theme-swatch" aria-hidden="true">
-                  <span className="dp-theme-aa" style={{ fontFamily: `"${t.fonts.display}", serif` }}>Aa</span>
-                  <span className="dp-theme-dot" />
-                </span>
-                <span className="dp-theme-name">{t.name}</span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="dp-sec">
-        <h3 className="dp-label">Accent colour</h3>
-        <div className="dp-accents" role="radiogroup" aria-label="Accent colour">
-          <button type="button" role="radio" aria-checked={!settings.accent} className="dp-accent dp-accent-default" onClick={e => update({ accent: null }, pt(e))}>
-            Theme
-          </button>
-          {ACCENTS.map(c => (
-            <button key={c} type="button" role="radio" aria-checked={settings.accent === c} aria-label={`Accent ${c}`} className="dp-accent" style={{ background: c }} onClick={e => update({ accent: c }, pt(e))} />
-          ))}
-          <label className="dp-accent dp-accent-custom" title="Pick any colour">
-            <span className="sr-only">Custom accent colour</span>
-            <input type="color" value={settings.accent || '#ffb03a'} onChange={e => update({ accent: e.target.value })} />
-            <span aria-hidden="true">+</span>
-          </label>
-        </div>
-        <p className="dp-hint">Text and button colours adjust automatically to stay readable.</p>
-      </section>
-
-      </>}
       {kind === 'a11y' && <>
       <section className="dp-sec dp-sec-first">
         <div className="dp-field">
@@ -171,48 +94,18 @@ function Panel({ onClose, anchorRef, kind }) {
 
       <button type="button" className="dp-reset" onClick={() => update({ scale: 1, motion: 'system', contrast: false, readable: false, underline: false })}>Reset accessibility</button>
       </>}
-      {kind === 'display' && <button type="button" className="dp-reset" onClick={e => reset(pt(e))}>Reset to defaults</button>}
     </div>
   );
 }
 
-export function ThemeToast() {
-  const { announce, reduceMotion } = useTheme();
-  return (
-    <div className="theme-toast-wrap" aria-live="polite" role="status">
-      {announce && (
-        <div className="theme-toast" key={announce.key}>
-          <span className="theme-toast-label">Theme</span>
-          <span className="theme-toast-name">
-            {reduceMotion ? announce.name : <DecryptedText text={announce.name} animateOn="view" sequential speed={22} revealDirection="start" />}
-          </span>
-          <span className="theme-toast-tag">{announce.tag}</span>
-        </div>
-      )}
-    </div>
-  );
-}
-
-/** Randomise · Dark/Light · Display panel — used in the desktop header and the mobile bar. */
+/** Dark/Light switch and Accessibility panel — used in the desktop header and the mobile bar. */
 export default function ThemeControls({ compact = false }) {
-  const { randomise, toggleMode, mode } = useTheme();
+  const { toggleMode, mode } = useTheme();
   const [open, setOpen] = useState(null);
-  const [spin, setSpin] = useState(0);
-  const btnRef = useRef(null);
   const a11yRef = useRef(null);
 
   return (
-    <div className={`tc ${compact ? 'tc-compact' : ''}`} onPointerEnter={warmFonts} onFocus={warmFonts}>
-      <button
-        type="button"
-        className="tc-btn cursor-target"
-        data-cursor-label="Shuffle"
-        aria-label="Randomise theme"
-        onClick={e => { setSpin(s => s + 1); randomise(pt(e)); }}
-      >
-        <span className="tc-dice" style={{ transform: `rotate(${spin * 180}deg)` }}>{Icon.dice}</span>
-        {!compact && <span className="tc-text">Randomise</span>}
-      </button>
+    <div className={`tc ${compact ? 'tc-compact' : ''}`} >
       <button
         type="button"
         className="tc-btn tc-icon cursor-target"
@@ -221,18 +114,6 @@ export default function ThemeControls({ compact = false }) {
         onClick={e => toggleMode(pt(e))}
       >
         {mode === 'dark' ? Icon.sun : Icon.moon}
-      </button>
-      <button
-        ref={btnRef}
-        type="button"
-        className="tc-btn tc-icon cursor-target"
-        data-cursor-label="Display"
-        aria-label="Display settings: appearance, theme and colour"
-        aria-expanded={open === 'display'}
-        aria-haspopup="dialog"
-        onClick={() => setOpen(o => (o === 'display' ? null : 'display'))}
-      >
-        {Icon.sliders}
       </button>
       <button
         ref={a11yRef}
@@ -246,7 +127,7 @@ export default function ThemeControls({ compact = false }) {
       >
         {Icon.access}
       </button>
-      {open && <Panel key={open} kind={open} onClose={() => setOpen(null)} anchorRef={open === 'a11y' ? a11yRef : btnRef} />}
+      {open && <Panel key={open} kind={open} onClose={() => setOpen(null)} anchorRef={a11yRef} />}
     </div>
   );
 }

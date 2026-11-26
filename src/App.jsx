@@ -8,7 +8,6 @@ import TargetCursor from './bits/TargetCursor';
 import './bits/TargetCursor.css';
 import Nav from './sections/Nav';
 import { useTheme } from './theme/ThemeProvider';
-import { ThemeToast } from './theme/ThemeControls';
 import Hero from './sections/Hero';
 const Below = lazy(() => import('./sections/Below'));
 const CaseStudy = lazy(() => import('./sections/CaseStudy'));
@@ -95,7 +94,6 @@ export default function App() {
       {finePointer && !reduceMotion && (
         <TargetCursor targetSelector=".cursor-target" cursorColor={palette['tungsten-text']} blendMode="normal" size={32} cornerSize={10} thickness={1.5} padding={8} spinDuration={4} />
       )}
-      <ThemeToast />
     </>
   );
 }

@@ -17,7 +17,7 @@
     <script>(function(){var d=document.documentElement,s={};try{s=JSON.parse(localStorage.getItem('display-v1')||'{}')}catch(e){}
 var m=s.mode||'system';if(m==='system')m=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
 var mo=s.motion||'system';if(mo==='system')mo=matchMedia('(prefers-reduced-motion: reduce)').matches?'reduce':'full';
-d.dataset.skin=s.skin||'directors';d.dataset.theme=m;d.dataset.motion=mo;d.dataset.contrast=s.contrast?'high':'normal';
+d.dataset.skin='directors';d.dataset.theme=m;d.dataset.motion=mo;d.dataset.contrast=s.contrast?'high':'normal';
 d.dataset.readable=String(!!s.readable);d.dataset.underline=String(!!s.underline);if(s.scale)d.style.setProperty('--ts',s.scale);})();</script>
   </head>
   <body>

@@ -17,8 +17,6 @@ export const DEFAULTS = {
   underline: false
 };
 
-export const ACCENTS = ['#ffb03a', '#e5383b', '#ff2bd6', '#a796ff', '#2ad1c9', '#39b54a', '#ffe600', '#e2725b'];
-
 // ---------- colour maths ----------
 const hex2rgb = h => { h = h.replace('#', ''); if (h.length === 3) h = h.split('').map(c => c + c).join(''); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
 const rgb2hex = c => '#' + c.map(x => Math.max(0, Math.min(255, Math.round(x))).toString(16).padStart(2, '0')).join('');
@@ -77,16 +75,12 @@ export function applyToDocument(settings) {
 }
 
 export function load() {
-  try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') }; } catch { return { ...DEFAULTS }; }
+  let s = {};
+  try { s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { /* storage unavailable */ }
+  return { ...DEFAULTS, ...s, skin: 'directors', accent: null };
 }
 export function save(s) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch { /* storage unavailable */ }
-}
-
-/** A random theme that is never the current one. */
-export function randomSkin(current) {
-  const pool = THEME_IDS.filter(id => id !== current);
-  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 let fontsRequested = false;

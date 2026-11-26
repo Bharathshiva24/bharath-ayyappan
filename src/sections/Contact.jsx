@@ -35,7 +35,7 @@ export default function Contact() {
       <footer className="container footer">
         <span>© 2026 {PROFILE.name}</span>
         <span className="footer-mid">Designed &amp; built in Chennai · React, GSAP &amp; React Bits</span>
-        <span>Theme, colour &amp; accessibility settings are in the header</span>
+        <span>Light/dark mode &amp; accessibility settings are in the header</span>
       </footer>
     </section>
   );

@@ -1,7 +1,7 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { gsap } from 'gsap';
-import { applyToDocument, DEFAULTS, load, randomSkin, resolveMotion, save, THEMES, warmFonts } from './engine';
+import { applyToDocument, DEFAULTS, load, resolveMotion, save, warmFonts } from './engine';
 
 const Ctx = createContext(null);
 export const useTheme = () => useContext(Ctx);
@@ -9,8 +9,6 @@ export const useTheme = () => useContext(Ctx);
 export default function ThemeProvider({ children }) {
   const [settings, setSettings] = useState(load);
   const [resolved, setResolved] = useState(() => applyToDocument(settings));
-  const [announce, setAnnounce] = useState(null);
-  const announceTimer = useRef(0);
 
   const commit = useCallback(next => {
     const r = applyToDocument(next);
@@ -60,22 +58,13 @@ export default function ThemeProvider({ children }) {
     }).catch(() => {});
   }, [settings, commit]);
 
-  const setSkin = useCallback((skin, origin) => {
-    update({ skin }, origin);
-    const t = THEMES.find(x => x.id === skin);
-    clearTimeout(announceTimer.current);
-    setAnnounce({ key: Date.now(), name: t.name, tag: t.tag });
-    announceTimer.current = setTimeout(() => setAnnounce(null), 2600);
-  }, [update]);
-
-  const randomise = useCallback(origin => setSkin(randomSkin(settings.skin), origin), [settings.skin, setSkin]);
   const toggleMode = useCallback(origin => update({ mode: resolved.mode === 'dark' ? 'light' : 'dark' }, origin), [resolved.mode, update]);
   const reset = useCallback(origin => update({ ...DEFAULTS }, origin), [update]);
 
   const value = useMemo(() => ({
-    settings, update, setSkin, randomise, toggleMode, reset, announce,
+    settings, update, toggleMode, reset,
     theme: resolved.theme, mode: resolved.mode, palette: resolved.palette, reduceMotion
-  }), [settings, update, setSkin, randomise, toggleMode, reset, announce, resolved, reduceMotion]);
+  }), [settings, update, toggleMode, reset, resolved, reduceMotion]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

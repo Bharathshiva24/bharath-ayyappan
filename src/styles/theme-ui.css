@@ -178,13 +178,10 @@ html[data-motion="reduce"] .theme-toast { animation: none; }
 .hero-inner .slate { justify-content: var(--slate-justify); }
 @media (max-width: 760px) { .hero-foot { flex-direction: column; align-items: var(--slate-justify); } }
 
-@media (max-width: 860px) {
-  .mobile-menu .sm-toggle-textWrap { display: none !important; }
-  .mobile-menu .sm-toggle { gap: 0 !important; }
-}
+
 @media (max-width: 380px) { .mobile-tools .tc-btn { height: 30px; min-width: 30px; width: 30px; } .mobile-menu .nav-name { font-size: calc(13px * var(--ts)); } }
 .dp-sec-first { border-top: 0; padding-top: 0; }
-@media (max-width: 860px) { .mobile-tools { right: 60px !important; } }
+@media (max-width: 860px) { .mobile-tools { right: 104px !important; } }
 
 /* Product row that opens a notice instead of a link */
 .product-btn { width: 100%; background: none; border: 0; border-top: var(--border-w) var(--border-style) var(--line); font: inherit; color: inherit; text-align: left; cursor: pointer; }
