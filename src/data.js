@@ -83,8 +83,22 @@ export const WORK = [
     href: 'https://posterflix.in/'
   },
   {
-    id: 'kfc',
+    id: 'timeline',
     index: '05',
+    title: 'The Timeline',
+    kind: 'Web app · Fan project',
+    year: '2026',
+    status: 'shipped',
+    statusLabel: 'Live',
+    description: 'An interactive guide for anyone getting into the Marvel Cinematic Universe — a zoomable timeline, watch-order guides, characters, post-credit scenes and a personal watch tracker, in five languages.',
+    tags: ['Product design', 'Web', 'Admin CMS', 'i18n'],
+    image: 'work/timeline-og.webp',
+    imageAlt: 'The Timeline: an interactive guide to the Marvel Cinematic Universe',
+    href: 'https://marvel-timeline.vercel.app/'
+  },
+  {
+    id: 'kfc',
+    index: '06',
     title: 'KFC App — Concept Revamp',
     kind: 'Mobile app concept',
     year: 'Self-initiated',
@@ -99,7 +113,7 @@ export const WORK = [
   },
   {
     id: 'lucid',
-    index: '06',
+    index: '07',
     title: 'LUCID',
     kind: 'Speculative product',
     year: '2022 — Ongoing',
@@ -114,7 +128,7 @@ export const WORK = [
   },
   {
     id: 'slate',
-    index: '07',
+    index: '08',
     title: 'Slate Auto — Modular Mods',
     kind: 'Visual concept',
     year: 'Self-initiated',
@@ -129,7 +143,7 @@ export const WORK = [
   },
   {
     id: 'client',
-    index: '08',
+    index: '09',
     title: 'Enterprise & client work',
     slot: 'ENT-01',
     kind: 'Enterprise · Marketing · Consumer',
@@ -178,6 +192,7 @@ export const PRODUCTS = [
 ];
 
 export const LAB = [
+  { text: 'The Timeline', meta: 'Web app · 5 languages · 2026', marquee: 'Your way into the MCU', image: 'work/timeline-og.webp', link: 'https://marvel-timeline.vercel.app/' },
   { text: 'HoloGlobe', meta: 'Gesture UI · Concept · 2025', marquee: 'Pinch, rotate, zoom — no touch', image: 'work/hologlobe.webp', link: 'https://www.linkedin.com/feed/update/urn:li:activity:7402208935467999232/' },
   { text: 'TimeLens', meta: 'Generative AI · 2025', marquee: 'Any place, any era', image: 'work/timelens.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_see-any-place-in-any-era-with-a-single-click-ugcPost-7399298393375858688-WMco/' },
   { text: 'CineMagic', meta: 'iPad · Real-time AI VFX · 2024', marquee: 'Effects you can see on set', image: 'work/cinemagic-wide.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_filmmaking-specialeffects-cinemagic-ugcPost-7210902200292626432-rJnK/' },
