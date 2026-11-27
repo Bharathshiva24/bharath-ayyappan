@@ -24,19 +24,18 @@ export const DISCIPLINES = ['Product design', 'Creative technology', 'AI product
 
 export const WORK = [
   {
-    id: 'cineview',
+    id: 'posterflix',
     index: '01',
-    title: 'CineView',
-    kind: 'Chrome extension',
-    year: '2026',
+    title: 'Posterflix',
+    kind: 'Founder · E-commerce',
+    year: '2026 — Now',
     status: 'shipped',
-    statusLabel: 'Shipped · v2.4.5',
-    description:
-      'See the screen from your seat before you book. CineView reads the seat map on District and BookMyShow and renders your exact seat in 3D — with the film’s trailer playing on the screen.',
-    tags: ['Product design', '3D / CSS', 'Chrome', 'Built solo'],
-    image: 'work/cineview-hero.webp',
-    imageAlt: 'CineView promo: “See the screen from your seat.”',
-    href: 'https://cineview-ten.vercel.app',
+    statusLabel: 'Live · posterflix.in',
+    description: '1,470 original wall posters, custom photo prints and an AR try-on — a store I designed, built and run.',
+    tags: ['Founder', 'E-commerce', 'AR'],
+    image: 'work/posterflix.webp',
+    imageAlt: 'Posterflix home page featuring the Little Tamil Moments poster set',
+    href: 'https://posterflix.in/',
     featured: true
   },
   {
@@ -69,22 +68,8 @@ export const WORK = [
     href: 'https://github.com/Bharathshiva24/AC-Widget'
   },
   {
-    id: 'posterflix',
-    index: '04',
-    title: 'Posterflix',
-    kind: 'Founder · E-commerce',
-    year: '2026 — Now',
-    status: 'shipped',
-    statusLabel: 'Live · posterflix.in',
-    description: '1,470 original wall posters, custom photo prints and an AR try-on — a store I designed, built and run.',
-    tags: ['Founder', 'E-commerce', 'AR'],
-    image: 'work/posterflix.webp',
-    imageAlt: 'Posterflix home page featuring the Little Tamil Moments poster set',
-    href: 'https://posterflix.in/'
-  },
-  {
     id: 'timeline',
-    index: '05',
+    index: '04',
     title: 'The Timeline',
     kind: 'Web app · Fan project',
     year: '2026',
@@ -95,6 +80,21 @@ export const WORK = [
     image: 'work/timeline-og.webp',
     imageAlt: 'The Timeline: an interactive guide to the Marvel Cinematic Universe',
     href: 'https://marvel-timeline.vercel.app/'
+  },
+  {
+    id: 'cineview',
+    index: '05',
+    title: 'CineView',
+    kind: 'Chrome extension',
+    year: '2026',
+    status: 'shipped',
+    statusLabel: 'Shipped · v2.4.5',
+    description:
+      'See the screen from your seat before you book. CineView reads the seat map on District and BookMyShow and renders your exact seat in 3D — with the film’s trailer playing on the screen.',
+    tags: ['Product design', '3D / CSS', 'Chrome', 'Built solo'],
+    image: 'work/cineview-hero.webp',
+    imageAlt: 'CineView promo: “See the screen from your seat.”',
+    href: 'https://cineview-ten.vercel.app'
   },
   {
     id: 'kfc',
