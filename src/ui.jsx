@@ -48,12 +48,22 @@ export function Status({ state = 'shipped', children }) {
 
 export const Tag = ({ children }) => <span className="tag">{children}</span>;
 
+// If an image fails (flaky network, or a request that lands mid-deploy), retry twice before giving up.
+function retryImg(e) {
+  const img = e.currentTarget;
+  const n = Number(img.dataset.retry || 0);
+  if (n >= 2) return;
+  img.dataset.retry = n + 1;
+  const base = img.getAttribute('src').split('?')[0];
+  setTimeout(() => { img.src = `${base}?r=${n + 1}`; }, 800 * (n + 1));
+}
+
 const RATIO = { scope: 2.39, flat: 1.85, video: 16 / 9, portrait: 0.8, photo: 1204 / 805, og: 1200 / 630 };
 export function Screen({ aspect = 'flat', src, alt = '', label, fit, eager }) {
   return (
     <div className="screen" style={{ aspectRatio: RATIO[aspect] }}>
       {src ? (
-        <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" className={fit === 'contain' ? 'contain' : undefined} />
+        <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={retryImg} className={fit === 'contain' ? 'contain' : undefined} />
       ) : (
         <>
           <div className="screen-grid" />
