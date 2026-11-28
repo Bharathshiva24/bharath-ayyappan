@@ -29,9 +29,9 @@ export default function Products() {
       <div className="container">
         <SectionHead
           scene="SC.02"
-          meta={['Founder', '3 ventures']}
+          meta={['Founder', `${PRODUCTS.length} ventures`]}
           title={<span id="products-title">Products I've founded</span>}
-          intro="Ideas I cared about enough to take from sketch to company — local AI, generative content and film."
+          intro="Ideas I cared about enough to take from sketch to company — local AI, live streaming, generative content and film."
         />
         <ol className="products-list">
           {PRODUCTS.map((p, i) => (

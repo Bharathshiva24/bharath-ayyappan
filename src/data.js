@@ -39,8 +39,22 @@ export const WORK = [
     featured: true
   },
   {
-    id: 'pocketdesk',
+    id: 'signalroom',
     index: '02',
+    title: 'Signal Room',
+    kind: 'Web app · Self-hosted',
+    year: '2026',
+    status: 'shipped',
+    statusLabel: 'Live · Open source',
+    description: 'Your channel, live around the clock. Signal Room loops your videos as a 24/7 stream to YouTube, Facebook, Twitch and more — with auto-recovery, a live dashboard and a REST API, on a server you control.',
+    tags: ['Product design', 'Streaming', 'ffmpeg', 'Open source'],
+    image: 'work/signalroom-og.webp',
+    imageAlt: 'Signal Room: your channel, live around the clock — the streams dashboard on laptop, tablet and phone',
+    href: 'https://signal-room-live.vercel.app/'
+  },
+  {
+    id: 'pocketdesk',
+    index: '03',
     title: 'PocketDesk',
     kind: 'Android + web',
     year: '2026',
@@ -54,7 +68,7 @@ export const WORK = [
   },
   {
     id: 'acwidget',
-    index: '03',
+    index: '04',
     title: 'AC Widget',
     kind: 'macOS menu bar',
     year: '2026',
@@ -69,7 +83,7 @@ export const WORK = [
   },
   {
     id: 'timeline',
-    index: '04',
+    index: '05',
     title: 'The Timeline',
     kind: 'Web app · Fan project',
     year: '2026',
@@ -83,7 +97,7 @@ export const WORK = [
   },
   {
     id: 'cineview',
-    index: '05',
+    index: '06',
     title: 'CineView',
     kind: 'Chrome extension',
     year: '2026',
@@ -98,7 +112,7 @@ export const WORK = [
   },
   {
     id: 'kfc',
-    index: '06',
+    index: '07',
     title: 'KFC App — Concept Revamp',
     kind: 'Mobile app concept',
     year: 'Self-initiated',
@@ -113,7 +127,7 @@ export const WORK = [
   },
   {
     id: 'lucid',
-    index: '07',
+    index: '08',
     title: 'LUCID',
     kind: 'Speculative product',
     year: '2022 — Ongoing',
@@ -128,7 +142,7 @@ export const WORK = [
   },
   {
     id: 'slate',
-    index: '08',
+    index: '09',
     title: 'Slate Auto — Modular Mods',
     kind: 'Visual concept',
     year: 'Self-initiated',
@@ -143,7 +157,7 @@ export const WORK = [
   },
   {
     id: 'client',
-    index: '09',
+    index: '10',
     title: 'Enterprise & client work',
     slot: 'ENT-01',
     kind: 'Enterprise · Marketing · Consumer',
@@ -159,6 +173,15 @@ export const WORK = [
 ];
 
 export const PRODUCTS = [
+  {
+    title: 'Signal Room',
+    year: '2026',
+    status: 'shipped',
+    statusLabel: 'Live · Open source',
+    line: 'Run your channel live around the clock. Loop pre-recorded videos to YouTube, Facebook, Twitch or any RTMP platform from a server you own — no monthly fee.',
+    meta: ['Founder', 'Live streaming', 'Self-hosted'],
+    href: 'https://signal-room-live.vercel.app/'
+  },
   {
     title: 'Vizr',
     year: '2026 — Now',
@@ -188,6 +211,7 @@ export const PRODUCTS = [
 ];
 
 export const LAB = [
+  { text: 'Signal Room', meta: 'Live streaming · Open source · 2026', marquee: 'Live, around the clock', image: 'work/signalroom-og.webp', link: 'https://signal-room-live.vercel.app/' },
   { text: 'The Timeline', meta: 'Web app · 5 languages · 2026', marquee: 'Your way into the MCU', image: 'work/timeline-og.webp', link: 'https://marvel-timeline.vercel.app/' },
   { text: 'HoloGlobe', meta: 'Gesture UI · Concept · 2025', marquee: 'Pinch, rotate, zoom — no touch', image: 'work/hologlobe.webp', link: 'https://www.linkedin.com/feed/update/urn:li:activity:7402208935467999232/' },
   { text: 'TimeLens', meta: 'Generative AI · 2025', marquee: 'Any place, any era', image: 'work/timelens.webp', link: 'https://www.linkedin.com/posts/bharathshivaux_see-any-place-in-any-era-with-a-single-click-ugcPost-7399298393375858688-WMco/' },
