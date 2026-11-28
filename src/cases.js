@@ -165,6 +165,79 @@ export const CASES = {
       }
     ],
     links: [{ label: 'See the post', href: 'https://www.linkedin.com/posts/bharathshivaux_slateauto-designthinking-modularvehicles-ugcPost-7328727176625692673-7UMc/' }],
+    next: 'creativecat'
+  },
+  creativecat: {
+    id: 'creativecat',
+    title: 'CreativeCat — A Year of Content, Planned by AI',
+    kind: 'Founder · AI product',
+    year: '2023 — 2025 · On hold',
+    status: 'concept',
+    statusLabel: 'On hold',
+    brief: 'Not another AI writer: a platform that planned and generated up to 365 days of curated content for product-based businesses. A commercial failure, and the most valuable lesson of my career.',
+    cover: { id: 'CC-01', src: 'work/creativecat-cover.webp', label: 'CreativeCat', alt: 'CreativeCat logo', aspect: 'scope' },
+    facts: [
+      ['Role', 'Founder · product, design and team lead'],
+      ['Team', 'A small team of friends'],
+      ['Timeline', '2023 — 2025, now on hold'],
+      ['Recognition', 'Google Cloud Startup Program']
+    ],
+    chapters: [
+      {
+        title: 'Why we built it',
+        body: [
+          'We started CreativeCat during the early rise of ChatGPT. Generative AI could suddenly write anything — but businesses still didn’t know what to post, when, or for whom. Most AI tools answered one prompt at a time; nobody was planning the year.',
+          'For product-based businesses, content isn’t a single caption. It is a calendar of launches, festivals, seasons and campaigns, different for every region and every platform. That planning was the real work, and that’s where we aimed.'
+        ]
+      },
+      {
+        title: 'What CreativeCat was',
+        body: [
+          'CreativeCat was an AI-powered curated content and creative generation platform for product businesses. Its core capability: plan and generate up to 365 days of content, shaped around the business rather than a blank prompt box.'
+        ],
+        bullets: [
+          'Product categories and business requirements',
+          'Target geography and regional audiences',
+          'Marketing goals and campaigns',
+          'Seasonal events, festivals and occasions',
+          'Social media platforms and content formats',
+          'Year-round content calendars and creative requirements'
+        ]
+      },
+      {
+        title: 'More than a calendar',
+        body: [
+          'Around the planner we built a set of tools to simplify the rest of the workflow — writing and editing tools, templates and a workspace to organise files, so a marketing team could go from plan to finished creative in one place.'
+        ]
+      },
+      {
+        title: 'Building it with friends',
+        body: [
+          'I led a small team of friends — setting the product direction, designing the experience and coordinating development while we learned AI integration in real time as the models changed under us.',
+          'CreativeCat was selected for the Google Cloud Startup Program, which gave us the infrastructure to build and run the platform.'
+        ]
+      },
+      {
+        title: 'Why it’s on hold',
+        body: [
+          'CreativeCat didn’t reach the commercial success we expected. Financial pressure and the cost of marketing a new product in a crowded, fast-moving AI market caught up with us, and I chose to put the project on hold.'
+        ]
+      },
+      {
+        title: 'What it taught me',
+        body: [
+          'CreativeCat may have been a commercial failure, but it was a successful learning experience. It gave me the confidence and the foundation to move beyond designing interfaces and start building products of my own.'
+        ],
+        bullets: [
+          'Product strategy — choosing what to build and what to leave out',
+          'AI integration — designing around models that change every month',
+          'Team management — leading friends as a team, with real deadlines',
+          'Product development — taking an idea from design to working software',
+          'Marketing — a great product still has to find its audience',
+          'Going to market — the distance between “it works” and “people pay for it”'
+        ]
+      }
+    ],
     next: 'kfc'
   }
 };

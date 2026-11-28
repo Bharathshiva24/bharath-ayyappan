@@ -37,7 +37,7 @@ export default function CaseStudy({ id }) {
         </h1>
         <Reveal delay={0.4} distance={20}><p className="case-brief">{c.brief}</p></Reveal>
         <Reveal delay={0.5} distance={20}>
-          <div className="case-status"><Status state={c.status}>{c.status === 'concept' ? 'Concept' : undefined}</Status></div>
+          <div className="case-status"><Status state={c.status}>{c.statusLabel || (c.status === 'concept' ? 'Concept' : undefined)}</Status></div>
         </Reveal>
       </header>
 
